@@ -1,4 +1,4 @@
-name: Master build
+name: PR build
 
 on:
   pull_request:
@@ -8,5 +8,5 @@ jobs:
   build:
     uses: ./.github/workflows/build.yml
     with:
-      pr: ${{ github.event.issue.number }}
+      pr: ${{ github.event.pull_request.number }}
     secrets: inherit
