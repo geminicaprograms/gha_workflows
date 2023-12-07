@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      pr:
+        description: 'PR to verify'
+        type: string
+        required: false
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print variable if not empty
+        if: ${{ inputs.pr != '' }}
+        run: echo Level value is ${{ inputs.pr }}
+
+      - name: Print message if empty
+        if: ${{ inputs.pr == '' }}
+        run: echo Level value is empty
