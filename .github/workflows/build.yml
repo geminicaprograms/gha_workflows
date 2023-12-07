@@ -12,10 +12,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Print input
+        run: echo PR value is ${{ inputs.pr }}
+
       - name: Print variable if not empty
         if: ${{ inputs.pr != '' }}
-        run: echo Level value is ${{ inputs.pr }}
+        run: echo PR value is ${{ inputs.pr }}
 
       - name: Print message if empty
         if: ${{ inputs.pr == '' }}
-        run: echo Level value is empty
+        run: echo PR value is empty
